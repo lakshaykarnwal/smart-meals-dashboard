@@ -7,7 +7,8 @@ import VendorPerformance from './components/VendorPerformance';
 import RiskManagement from './components/RiskManagement';
 import TimelineVisualization from './components/TimelineVisualization';
 import DashboardFilters from './components/DashboardFilters';
-import PDFViewer from './components/PdfViewer';
+// import PDFViewer from './components/PdfViewer'; // <-- REMOVE THIS LINE
+import SimplePdfEmbed from './components/Simple'; // <-- IMPORT THE NEW COMPONENT
 
 // Import your data files
 import originalFinancialData from './data/financialData';
@@ -20,10 +21,15 @@ import './index.css';
 // Import the helper function from the utility file
 import { parsePeriodDate } from './utils/dateUtils';
 
-// --- IMPORTANT: Import your PDF file ---
-// If 'Project Showcase_ Smart Meals Initiative.pdf' is in your 'public' folder,
-// you can reference it directly like this:
-const projectShowcasePdfUrl = '/Project Showcase_ Smart Meals Initiative.pdf';
+// --- IMPORTANT: Reference your PDF file using process.env.PUBLIC_URL ---
+// Use the simplified 'file.pdf' name.
+// This will correctly build the path for both your local environment
+// (which seems to be using /smart-meals-dashboard/) and GitHub Pages.
+const projectShowcasePdfUrl = process.env.PUBLIC_URL + '/file.pdf';
+
+// --- DEBUGGING: Log the value of projectShowcasePdfUrl here ---
+console.log("App.js: projectShowcasePdfUrl defined as:", projectShowcasePdfUrl);
+
 
 function App() {
   // State to control PDF viewer visibility
@@ -200,14 +206,15 @@ function App() {
   return (
     <>
       {showPdfViewer ? (
-        <PDFViewer
+        <SimplePdfEmbed // <-- USE THE NEW COMPONENT HERE
           pdfUrl={projectShowcasePdfUrl}
           onContinue={() => setShowPdfViewer(false)}
         />
       ) : (
         <div className="bg-gray-100 min-h-screen p-4 sm:p-6">
           <div className="flex items-center mb-4 sm:mb-6"> {/* Flex container for logo and title */}
-            <img src="/logo.png" alt="App Logo" className="h-10 w-10 sm:h-12 sm:w-12 mr-3" />
+            {/* Ensure logo.png is in your public folder and this path is correct */}
+            <img src={process.env.PUBLIC_URL + '/logo.png'} alt="App Logo" className="h-10 w-10 sm:h-12 sm:w-12 mr-3" />
             <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">Smart Meals Initiative Dashboard</h1>
           </div>
 
