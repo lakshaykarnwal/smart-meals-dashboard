@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/smart-meals-dashboard/static/css/main.5517119d.css",
-    "main.js": "/smart-meals-dashboard/static/js/main.e6600711.js",
+    "main.js": "/smart-meals-dashboard/static/js/main.d30229bd.js",
     "static/js/453.a3fe4096.chunk.js": "/smart-meals-dashboard/static/js/453.a3fe4096.chunk.js",
     "index.html": "/smart-meals-dashboard/index.html",
     "main.5517119d.css.map": "/smart-meals-dashboard/static/css/main.5517119d.css.map",
-    "main.e6600711.js.map": "/smart-meals-dashboard/static/js/main.e6600711.js.map",
+    "main.d30229bd.js.map": "/smart-meals-dashboard/static/js/main.d30229bd.js.map",
     "453.a3fe4096.chunk.js.map": "/smart-meals-dashboard/static/js/453.a3fe4096.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5517119d.css",
-    "static/js/main.e6600711.js"
+    "static/js/main.d30229bd.js"
   ]
 }
